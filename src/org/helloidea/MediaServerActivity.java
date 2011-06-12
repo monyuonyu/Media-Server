@@ -2,12 +2,62 @@ package org.helloidea;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-public class MediaServerActivity extends Activity {
-    /** Called when the activity is first created. */
-    @Override
+public class MediaServerActivity extends Activity implements OnClickListener {
+
+
+	private Button button;
+	private LinearLayout mainlayout;
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+
+        /*
+         * メインレイアウト生成
+         */
+        mainlayout = new LinearLayout(this);
+
+        /*
+         * レイアウト登録
+         */
+        setContentView(mainlayout);
+
+        mainlayout.setOrientation(LinearLayout.VERTICAL);		// 縦向き
+        mainlayout.setGravity(Gravity.LEFT);
+
+        /*
+         * ボタン生成
+         */
+        button = new Button(this);
+        button.setText("Hello!!");
+        button.setOnClickListener(this);
+
+        mainlayout.addView(button);
+
     }
+
+	public void onClick(View v) {
+		// TODO 自動生成されたメソッド・スタブ
+
+		mainlayout.addView(makeLabel("HAHAHA"));
+
+	}
+
+	private TextView makeLabel(String string) {
+
+		TextView label = new TextView(this);
+		label.setText(string);
+
+		return label;
+
+	}
+
+
 }
