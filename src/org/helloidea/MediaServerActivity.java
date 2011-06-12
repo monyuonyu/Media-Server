@@ -1,6 +1,7 @@
 package org.helloidea;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -14,6 +15,7 @@ public class MediaServerActivity extends Activity implements OnClickListener {
 
 	private Button button;
 	private LinearLayout mainlayout;
+	private MediaPlayer mp;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,9 @@ public class MediaServerActivity extends Activity implements OnClickListener {
 		// TODO 自動生成されたメソッド・スタブ
 
 		mainlayout.addView(makeLabel("HAHAHA"));
+
+		mp = MediaPlayer.create(this, R.raw.test);
+		mp.start();
 
 	}
 
