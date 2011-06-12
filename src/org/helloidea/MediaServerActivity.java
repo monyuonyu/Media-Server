@@ -2,6 +2,7 @@ package org.helloidea;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -50,7 +51,9 @@ public class MediaServerActivity extends Activity implements OnClickListener {
 
 		mainlayout.addView(makeLabel("HAHAHA"));
 
-		mp = MediaPlayer.create(this, R.raw.test);
+		Uri uri = Uri.parse("http://helloidea.org/test.mp3");
+
+		mp = MediaPlayer.create(this, uri);
 		mp.start();
 
 	}
